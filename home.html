@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body bgcolor="voilet">
+    <form method="post">
+
+{% csrf_token %}
+
+    <h1 align="center">Wellcome my home page</h1>
+
+    <table border="3" bgcolor="cream" align="center">
+
+      
+        <tr>
+            <td>S.No:</td>
+            <td><input type="number" name="txteid" value="{{emp.id}}"></td>
+        </tr>    
+        
+
+       <tr>
+            <td>Name:</td>
+            <td><input type="text" name="txtname" value="{{emp.name}}" ></td>
+        </tr>    
+        
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" name="txtage" value="{{emp.age}}" ></td>
+        </tr>   
+        
+        <tr>
+            <td>Address :</td>
+            <td><input type="text" name="txtadd" value="{{emp.address}}"></td>
+        </tr>
+        
+        <tr>
+            <td>Mobileno :</td>
+            <td><input type="text" name="txtmobile" value="{{emp.mobileno}}"></td>
+        </tr> 
+        
+        <tr>
+            <td><button type="submit" name="btnadd">Add Employee</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="submit" name="btnsearch">Search Employee</button></td>
+        </tr>
+
+
+        <tr>
+            <td><button type="submit" name="btnupdate">Update Employee</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="submit" name="btndelete">Delete Employee</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="submit" name="btnshow">Show All Employee</button></td>
+        </tr>
+    </table>
+
+     <br/><br/>
+    <table bgcolor="orange" border="3" align="center">
+        <tr>
+            <th>Sid</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Mobileno</th>
+        </tr>
+
+        {% for i in epAll %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.mobileno}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>
